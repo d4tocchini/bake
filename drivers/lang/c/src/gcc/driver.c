@@ -442,7 +442,7 @@ void link_dynamic_binary(
         ut_strbuf_appendstr(&cmd, " -fno-stack-protector --shared");
 
         /* Fail when symbols are not found in library */
-        if (!is_clang(cpp)) {
+        if (!is_clang(cpp) && !is_darwin()) {
             ut_strbuf_appendstr(&cmd, " -z defs");
         }
     }
